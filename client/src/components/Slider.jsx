@@ -1,6 +1,8 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
+import TypingEffect from "./TypingEffect";
+
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -11,52 +13,49 @@ const Slider = () => {
         animation="cubeAnimation"
         play={true}
         interval={3000}
-        style={{ height: "82vh" }}
+        style={{ height: "84vh" }}
         cancelOnInteraction={false}
       >
         
         <div data-src="/worship.jpg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
-            <div data-aos='fade-left' className="bg-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
-              <p>
-                <span>Join</span> us every Sunday at 9:00am
+            <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
+              <p className="text-3xl mb-5">
+                <span className="text-purple-400">Join</span> us every Sunday at 9:00am
               </p>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Journey Together, Where</h2>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Faith Meets, Fellowship</h2>
-              <p>
+              <TypingEffect textArr={['<span className="text-purple-400">FAITH</span>', 'MEETS FELLOWSHIP']} classList='md:text-[120px] text-6xl md:mb-5' />
+              {/* <p>
                 Embrace the Power of Unity: Explore a Community Rooted in Faith,
                 Enriched by Fellowship, and United in Compassionate Service
-              </p>
-            </div>
-          </div>
-        </div>
-        <div data-src="/worship2.jpeg">
-          <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
-            <div data-aos='fade-left' className="bg-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
-              <p>
-                <span>Join</span> us every Sunday at 9:00am
-              </p>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Journey Together, Where</h2>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Faith Meets, Fellowship</h2>
-              <p>
-                Embrace the Power of Unity: Explore a Community Rooted in Faith,
-                Enriched by Fellowship, and United in Compassionate Service
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
         <div data-src="/worship.jpg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
-            <div data-aos='fade-left' className="bg-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
-              <p>
-                <span>Join</span> us every Sunday at 9:00am
+            <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
+              <p className="text-3xl mb-5">
+                <span className="text-purple-400">Join</span> us every Sunday at 9:00am
               </p>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Journey Together, Where</h2>
-              <h2 className="lg:text-6xl text-3xl md:mb-5">Faith Meets, Fellowship</h2>
-              <p>
+              <TypingEffect textArr={['LOVE', 'GOD IS LOVE']} classList='md:text-[120px] text-6xl md:mb-5' />
+              {/* <p>
                 Embrace the Power of Unity: Explore a Community Rooted in Faith,
                 Enriched by Fellowship, and United in Compassionate Service
+              </p> */}
+            </div>
+          </div>
+        </div>
+        <div data-src="/worship2.jpeg">
+          <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
+            <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
+              <p className="text-3xl mb-5">
+                <span className="text-purple-400">Join</span> us every Sunday at 9:00am
               </p>
+              <TypingEffect textArr={['POWER', 'TOUCH NOT!']} classList='md:text-[120px] text-6xl md:mb-5' />
+              {/* <p>
+                Embrace the Power of Unity: Explore a Community Rooted in Faith,
+                Enriched by Fellowship, and United in Compassionate Service
+              </p> */}
             </div>
           </div>
         </div>
