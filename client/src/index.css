@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gotham-Bold";
+  src: local("Gotham-Bold"),
+    url("..fonts/Gotham-Font/Gotham-Font/GothamBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GothamBook";
+  src: local("GothamBook"),
+    url("..fonts/Gotham-Font/Gotham-Font/GothamBook.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gotham-Medium";
+  src: local("Gotham-Medium"),
+    url("..fonts/Gotham-Font/Gotham-Font/GothamMedium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Gotham-Thin";
+  src: local("Gotham-Thin"),
+    url("..fonts/Gotham-Font/Gotham-Font/Gotham-Thin.otf") format("truetype");
+}
+
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  /* line-height: 1.5; */
+  /* font-weight: 400; */
+}
+
+body::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.admin-layout{
+  background-color: rgb(28, 27, 27);
+}
+
+.sidebar{
+  /* background-color: rgb(11, 16, 64); */
+}
+
+button.awssld__next, button.awssld__prev{
+  visibility: hidden;
+}
+.awssld__timer, .awssld__timer--run{
+  visibility: hidden;
+}
+
+.awssld__control{
+  visibility: hidden;
+}
+
+.awssld__bullets{
+  visibility: hidden;
+}
