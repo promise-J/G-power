@@ -123,10 +123,10 @@ const Homepage = () => {
         </div>
       </section>
       <section className="my-10">
-        <h1 data-aos='zoom-out' className="text-center my-10 text-5xl">
+        <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Explore our <span className="text-purple-400 font-bold">Gallery</span>
         </h1>
-        <div data-aos='zoom-in' className="w-2/5 m-auto">
+        <div data-aos='slide-up' className="w-2/5 m-auto">
         <p className="text-center text-lg">
           Step into our visual narrative of faith, grace, and community.
           Discover snapshots of our shared journey, moments of worship, and
@@ -134,31 +134,31 @@ const Homepage = () => {
         </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
-          <div data-aos='fade-right' className="">
+          <div data-aos='fade-up' className="">
             <img src="/vision.jpeg" alt="" />
           </div>
           <div data-aos='fade-down' className="bg-green-300">
             <img src="/vision.jpeg" alt="" />
           </div>
-          <div data-aos='fade-left' className="bg-green-300">
+          <div data-aos='fade-up' className="bg-green-300">
             <img src="/vision.jpeg" alt="" />
           </div>
-          <div data-aos='fade-right' className="bg-green-300">
+          <div data-aos='fade-down' className="bg-green-300">
             <img src="/vision.jpeg" alt="" />
           </div>
           <div data-aos='fade-up' className="bg-green-300">
             <img src="/vision.jpeg" alt="" />
           </div>
-          <div data-aos='fade-right' className="bg-green-300">
+          <div data-aos='fade-down' className="bg-green-300">
             <img src="/vision.jpeg" alt="" />
           </div>
         </div>
       </section>
       <section className="my-10">
-        <h1 data-aos='zoom-out' className="text-center my-10 text-5xl">
+        <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Upcoming Special <span className="text-purple-400 font-bold">Events</span>
         </h1>
-        <div data-aos='zoom-in' className="w-2/5 m-auto">
+        <div data-aos='slide-up' className="w-2/5 m-auto">
         <p className="text-center text-lg">
         Join us for an upcoming event celebrating fellowship, faith, and community spirit.
         </p>
@@ -215,28 +215,28 @@ const Homepage = () => {
         </div>
       </section>
       <section className="my-10">
-        <h1 data-aos='zoom-out' className="text-center my-10 text-5xl">
+        <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Our Audio <span className="text-purple-400 font-bold">Messages</span>
         </h1>
-        <div data-aos='zoom-in' className="w-2/5 m-auto">
+        <div data-aos='slide-up' className="w-2/5 m-auto">
         <p className="text-center text-lg">
         Explore our audio messages—inspiring sermons and teachings that nurture your faith journey.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
-          <div className="cursor-pointer relative group" data-aos='zoom-in'>
+          <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/vision.jpeg" alt="" />
+            <img src="/vision.jpeg" alt="" className="rounded-[20px]" />
             <div className="shadow-lg p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne - 04-11-2023</p>
             </div>
           </div>
-          <div className="cursor-pointer relative group" data-aos='zoom-in'>
+          <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/vision.jpeg" alt="" />
+            <img src="/vision.jpeg" alt="" className="rounded-[20px]" />
             <div className="shadow-lg p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne2 - 02-11-2024</p>
             </div>
@@ -244,7 +244,7 @@ const Homepage = () => {
         </div>
       </section>
       <section className="flex md:p-10 my-10 flex-col md:flex-row">
-        <div data-aos='slide-right' className="md:ps-20 p-5 flex-1 shadow-lg">
+        <div data-aos='' className="md:ps-20 p-5 flex-1 shadow-lg">
           <h1 className="text-4xl my-4">Contact <span className="text-purple-400">US</span></h1>
           <p className="my-10 text-lg">Connect with us. Our doors are open to support and welcome you into our faith-filled community</p>
           <div>
@@ -253,7 +253,7 @@ const Homepage = () => {
             <p className="flex my-5 items-center gap-4"><MdOutlinePhoneEnabled cursor={'pointer'} size={22} /> +2348145459353</p>
           </div>
         </div>
-        <div data-aos='slide-left' className="flex-1 md:p-10 p-3 flex flex-col gap-5">
+        <div data-aos='' className="flex-1 md:p-10 p-3 flex flex-col gap-5">
           <input type="text" placeholder="Enter your Full name" className="p-3 rounded-[15px] shadow-lg outline-none" />
           <input type="text" placeholder="Enter your Email" className="p-3 rounded-[15px] shadow-lg outline-none" />
           <textarea name="" id="" cols="30" rows="10" className="p-3 rounded-[15px] outline-none shadow-lg" placeholder="Message..."></textarea>
