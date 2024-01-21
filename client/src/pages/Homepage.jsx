@@ -76,9 +76,9 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
-              src="/about.jpeg"
-              alt=""
+              className="h-full rounded-full shadow-lg shadow-black"
+              src="/gp.png"
+              alt="image-here"
             />
           </div>
         </div>
@@ -88,9 +88,9 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
-              src="/mission.jpeg"
-              alt=""
+              className="h-full rounded-full shadow-lg shadow-black"
+              src="/miss.png"
+              alt="image-here"
             />
           </div>
         </div>
@@ -148,9 +148,9 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
-              src="/vision.jpeg"
-              alt=""
+              className="h-full rounded-full  shadow-lg shadow-black"
+              src="/mission.jpeg"
+              alt="image-here"
             />
           </div>
         </div>
@@ -167,23 +167,35 @@ const Homepage = () => {
         </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
-          <div data-aos='fade-up' className="">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-up' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g1.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
-          <div data-aos='fade-down' className="bg-green-300">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-down' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g2.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
-          <div data-aos='fade-up' className="bg-green-300">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-up' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g3.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
-          <div data-aos='fade-down' className="bg-green-300">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-down' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g4.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
-          <div data-aos='fade-up' className="bg-green-300">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-up' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g5.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
-          <div data-aos='fade-down' className="bg-green-300">
-            <img src="/vision.jpeg" alt="" />
+          <div data-aos='fade-down' className=" flex justify-center items-center">
+            <div className="h-[90%] w-[90%]">
+            <img src="/g6.png" className="h-full w-full" alt="image-here" />
+            </div>
           </div>
         </div>
       </section>
@@ -198,7 +210,7 @@ const Homepage = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
           <div data-aos='zoom-in' className="p-2">
-            <img src="/vision.jpeg" alt="" className="rounded-tr-[20px] rounded-tl-[20px]" />
+            <img src="/christmas.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
             <div className="shadow-lg p-3 rounded-[20px]">
               <p className="my-4 font-semibold text-lg">Christmas Programme</p>
               <div className="flex">
@@ -222,7 +234,7 @@ const Homepage = () => {
             </div>
           </div>
           <div data-aos='zoom-in' className="p-2">
-            <img src="/vision.jpeg" alt="" className="rounded-tr-[20px] rounded-tl-[20px]" />
+            <img src="/new_year.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
             <div className="shadow-lg rounded-[20px] p-3">
               <p className="my-4 font-semibold text-lg">Ekpere Awka North.</p>
               <div className="flex">
@@ -260,7 +272,7 @@ const Homepage = () => {
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/vision.jpeg" alt="" className="rounded-[20px]" />
+            <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
             <div className="shadow-lg p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne - 04-11-2023</p>
             </div>
@@ -269,7 +281,7 @@ const Homepage = () => {
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/vision.jpeg" alt="" className="rounded-[20px]" />
+            <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
             <div className="shadow-lg p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne2 - 02-11-2024</p>
             </div>
