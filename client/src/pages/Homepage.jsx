@@ -7,13 +7,17 @@ import { CiMicrophoneOn } from "react-icons/ci";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlinePhoneEnabled } from "react-icons/md";
 import FaqItem from "../components/FaqItem";
+import { IoIosArrowDropup } from "react-icons/io";
 
 
 const Homepage = () => {
   return (
-    <div>
+    <div id='home'>
       <Slider />
-      <section className="flex mt-5 mb-10 flex-col md:flex-row">
+      <a href="#home">
+        <IoIosArrowDropup className="fixed right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
+      </a>
+      <section id='about' className="flex mt-5 mb-10 flex-col md:flex-row">
         <div
           data-aos="fade-right"
           className="flex justify-center flex-[2] items-center"
@@ -43,19 +47,19 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg"
+              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
               src="/about.jpeg"
               alt=""
             />
           </div>
         </div>
       </section>
-      <section className="flex mt-5 mb-10 flex-col md:flex-row">
+      <section id="mission" className="flex mt-5 mb-10 flex-col md:flex-row">
         <div className=" p-4 flex flex-[1.5] justify-center items-center">
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg"
+              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
               src="/mission.jpeg"
               alt=""
             />
@@ -86,7 +90,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="flex mt-5 mb-10 flex-col md:flex-row">
+      <section id="vision" className="flex mt-5 mb-10 flex-col md:flex-row">
         <div
           data-aos="fade-right"
           className="flex justify-center flex-[2] items-center"
@@ -115,14 +119,14 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-lg"
+              className="h-full rounded-lg border border-purple-400 border-[3px] shadow-lg shadow-black"
               src="/vision.jpeg"
               alt=""
             />
           </div>
         </div>
       </section>
-      <section className="my-10">
+      <section id="gallery" className="my-10">
         <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Explore our <span className="text-purple-400 font-bold">Gallery</span>
         </h1>
@@ -154,7 +158,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="my-10">
+      <section id="events" className="my-10">
         <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Upcoming Special <span className="text-purple-400 font-bold">Events</span>
         </h1>
@@ -214,7 +218,7 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="my-10">
+      <section id="audio-messages" className="my-10">
         <h1 data-aos='slide-down' className="text-center my-10 text-5xl">
           Our Audio <span className="text-purple-400 font-bold">Messages</span>
         </h1>
@@ -243,8 +247,8 @@ const Homepage = () => {
           </div>
         </div>
       </section>
-      <section className="flex md:p-10 my-10 flex-col md:flex-row">
-        <div data-aos='' className="md:ps-20 p-5 flex-1 shadow-lg">
+      <section id='contact' className="flex md:p-10 my-10 flex-col md:flex-row">
+        <div className="md:ps-20 p-5 flex-1 shadow-lg">
           <h1 className="text-4xl my-4">Contact <span className="text-purple-400">US</span></h1>
           <p className="my-10 text-lg">Connect with us. Our doors are open to support and welcome you into our faith-filled community</p>
           <div>
@@ -253,14 +257,14 @@ const Homepage = () => {
             <p className="flex my-5 items-center gap-4"><MdOutlinePhoneEnabled cursor={'pointer'} size={22} /> +2348145459353</p>
           </div>
         </div>
-        <div data-aos='' className="flex-1 md:p-10 p-3 flex flex-col gap-5">
+        <div className="flex-1 md:p-10 p-3 flex flex-col gap-5">
           <input type="text" placeholder="Enter your Full name" className="p-3 rounded-[15px] shadow-lg outline-none" />
           <input type="text" placeholder="Enter your Email" className="p-3 rounded-[15px] shadow-lg outline-none" />
           <textarea name="" id="" cols="30" rows="10" className="p-3 rounded-[15px] outline-none shadow-lg" placeholder="Message..."></textarea>
           <button className="bg-purple-400 text-white py-2 rounded-xl animate-bounce">Send Message</button>
         </div>
       </section>
-      <section className="md:ps-10 ps-3 mb-10 md:px-20">
+      <section id="faq" className="md:ps-10 ps-3 mb-10 md:px-20">
         <h1 className="text-4xl">Frequently asked</h1>
         <h1 className="text-purple-400 text-4xl mt-3">Questions</h1>
         
