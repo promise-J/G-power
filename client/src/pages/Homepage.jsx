@@ -11,12 +11,41 @@ import { IoIosArrowDropup } from "react-icons/io";
 
 
 const Homepage = () => {
+
+  const smoothScroll = (target, duration) => {
+    const targetElement = document.querySelector(target);
+    const targetPosition = targetElement.getBoundingClientRect().top;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easing(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    };
+
+    const easing = (t, b, c, d) => {
+      t /= d / 2;
+      if (t < 1) return c / 2 * t * t + b;
+      t--;
+      return -c / 2 * (t * (t - 2) - 1) + b;
+    };
+
+    requestAnimationFrame(animation);
+  };
+
+  const handleClick = () => {
+    smoothScroll('#home', 2000); // Adjust target element and duration as needed
+  };
+
+
   return (
     <div id='home'>
       <Slider />
-      <a href="#home">
-        <IoIosArrowDropup className="fixed right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
-      </a>
+        <IoIosArrowDropup cursor={'pointer'} onClick={handleClick} className="fixed right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
       <section id='about' className="flex mt-5 mb-10 flex-col md:flex-row">
         <div
           data-aos="fade-right"

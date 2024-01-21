@@ -67,7 +67,8 @@ const Header = () => {
       {/* Menu box ends */}
       <div className="flex justify-center items-center">
         <Link to='/'>
-          <img src="/vite.svg" />
+          <span className="text-blue-900 text-4xl">G.P</span>
+          {/* <img src="/vite.svg" /> */}
         </Link>
       </div>
       <div className="flex-[9] hidden md:flex justify-end pe-10 h-full">
