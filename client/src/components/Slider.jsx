@@ -17,7 +17,7 @@ const Slider = () => {
         cancelOnInteraction={false}
       >
         
-        <div data-src="/worship.jpg">
+        <div data-src="/header1.png">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
               <p className="text-3xl mb-5">
@@ -31,7 +31,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-        <div data-src="/worship.jpg">
+        <div data-src="/worship2.jpeg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
               <p className="text-3xl mb-5">
@@ -45,7 +45,7 @@ const Slider = () => {
             </div>
           </div>
         </div>
-        <div data-src="/worship2.jpeg">
+        <div data-src="/header1.png">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
               <p className="text-3xl mb-5">

@@ -76,7 +76,7 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-full shadow-lg shadow-black"
+              className="h-full md:rounded-full shadow-lg shadow-black"
               src="/gp.png"
               alt="image-here"
             />
@@ -88,7 +88,7 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-full shadow-lg shadow-black"
+              className="h-full md:rounded-full shadow-lg shadow-black"
               src="/miss.png"
               alt="image-here"
             />
@@ -148,7 +148,7 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full rounded-full  shadow-lg shadow-black"
+              className="h-full md:rounded-full  shadow-lg shadow-black"
               src="/mission.jpeg"
               alt="image-here"
             />

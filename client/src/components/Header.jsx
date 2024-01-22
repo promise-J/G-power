@@ -9,7 +9,7 @@ const Header = () => {
 
 
   return (
-    <div className="bg-white h-[90px] absolute top-0 left-0 w-[100%] z-10 flex items-center px-5 justify-between">
+    <div className="bg-white h-[90px] absolute top-0 left-0 w-[100%] z-30 flex items-center px-5 justify-between">
       {/* Menu Box */}
       {showMenu && (
         <div className="bg-white top-0 left-0 fixed w-[95%] h-[100vh] pe-3">
