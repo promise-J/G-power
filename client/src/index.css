@@ -59,3 +59,83 @@ button.awssld__next, button.awssld__prev{
 .awssld__bullets{
   visibility: hidden;
 }
+
+.pre-load div{
+  flex: 1;
+  /* background-color: red; */
+  /* display: flex; */
+}
+
+.pre-load div:nth-child(1) div{
+  background-color: rgb(120, 176, 250);
+  /* background-color: red; */
+  width: 20px;
+  height: 30px;
+  animation: left-pre-load 0.3s 5 forwards;
+  transition: all ease-in-out;
+  /* flex: 1  ; */
+}
+.pre-load div:nth-child(2) div{
+  background-color: rgb(120, 176, 250);
+  opacity: .4;
+  /* background-color: red; */
+  width: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 30px;
+  margin-left: auto;
+  transition: all ease-in-out;
+  animation: left-pre-load 0.5s 4 forwards;
+  /* flex: 1  ; */
+}
+
+.pre-load-text{
+  color: white;
+  position: absolute;
+}
+
+
+@keyframes left-pre-load {
+  0%{
+    width: 40px;
+    position: absolute;
+    height: 30px;
+  }25%{
+    width: 25%;
+    position: relative;
+    height: 30%;
+  }50%{
+    width: 50%;
+    position: relative;
+    height: 100%;
+  }75%{
+    width: 75%;
+    height: 200%;
+    position: relative;
+  }100%{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+  }
+}
+@keyframes right-pre-load {
+  0%{
+    width: 40px;
+    height: 100%;
+  }25%{
+    width: 25%;
+    height: 100%;
+  }50%{
+    width: 50%;
+    height: 100%;
+  }75%{
+    width: 75%;
+    height: 200%;
+  }100%{
+    width: 30px;
+    height: 30px;
+  }
+}

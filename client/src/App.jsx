@@ -6,21 +6,37 @@ import Contact from "./pages/Contact";
 import AdminLayout from "./admin/AdminLayout";
 import HomeDashboard from "./pages/admin/HomeDashboard";
 import Members from "./pages/admin/Members";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect, useState } from "react";
 import Mission from "./pages/Mission";
 import Vision from "./pages/Vision";
 import Gallery from "./pages/Gallery";
 import WatchLive from "./pages/WatchLive";
+import Preload from "./components/Preload";
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(()=>{
+    const timer = setTimeout(()=> setLoading(false), 2000)
+    
+    return () => clearTimeout(timer);
+  },[])
+
   useEffect(() => {
     AOS.init({
-      duration: 2000
+      duration: 2000,
     });
     // AOS.refresh();
   }, []);
+  console.log(loading, 'loading')
+
+  if (loading) {
+    return (
+      <Preload />
+    );
+  }
 
   return (
     <Router>
@@ -28,7 +44,6 @@ function App() {
         <Route path="/dashboard" element={<AdminLayout />}>
           <Route element={<HomeDashboard />} index />
           <Route element={<Members />} path="members" />
-
         </Route>
         <Route path="/" element={<Layout />}>
           <Route element={<Homepage />} index />
