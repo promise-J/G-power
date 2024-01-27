@@ -8,9 +8,15 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlinePhoneEnabled } from "react-icons/md";
 import FaqItem from "../components/FaqItem";
 import { IoIosArrowDropup } from "react-icons/io";
+import useBookNowStore from "../zustard/BookNowStore";
 
 
 const Homepage = () => {
+
+  const bookNowStore = useBookNowStore()
+  const openBooking = ()=> {
+    bookNowStore.onOpen()
+  }
 
   const smoothScroll = (target, duration) => {
     const targetElement = document.querySelector(target);
@@ -45,7 +51,7 @@ const Homepage = () => {
   return (
     <div id='home'>
       <Slider />
-        <IoIosArrowDropup cursor={'pointer'} onClick={handleClick} className="fixed right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
+        <IoIosArrowDropup cursor={'pointer'} onClick={handleClick} className="fixed right-3 md:right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
       <section id='about' className="flex mt-5 mb-10 flex-col md:flex-row">
         <div
           data-aos="fade-right"
@@ -296,6 +302,7 @@ const Homepage = () => {
             <p className="flex my-5 items-center gap-4"><CiLocationOn cursor={'pointer'} size={22} /> Awka Anambra state.</p>
             <p className="flex my-5 items-center gap-4"><HiOutlineMail cursor={'pointer'} size={22} /> godspower@gmail.com</p>
             <p className="flex my-5 items-center gap-4"><MdOutlinePhoneEnabled cursor={'pointer'} size={22} /> +2348145459353</p>
+            <button className="bg-purple-400 text-white px-5 rounded-lg py-2" onClick={openBooking}>Book now</button>
           </div>
         </div>
         <div className="flex-1 md:p-10 p-3 flex flex-col gap-5">

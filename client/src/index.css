@@ -59,40 +59,46 @@ button.awssld__next, button.awssld__prev{
 .awssld__bullets{
   visibility: hidden;
 }
-
-.pre-load div{
-  flex: 1;
-  /* background-color: red; */
-  /* display: flex; */
+.pre-load {
+  /* position: fixed;
+  top: 0;
+  left: 0; */
+  width: 100vw;
+  height: 100vh;
+  /* background-color: #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pre-load div:nth-child(1) div{
-  background-color: rgb(120, 176, 250);
-  /* background-color: red; */
-  width: 20px;
-  height: 30px;
-  animation: left-pre-load 0.3s 5 forwards;
-  transition: all ease-in-out;
-  /* flex: 1  ; */
-}
-.pre-load div:nth-child(2) div{
-  background-color: rgb(120, 176, 250);
-  opacity: .4;
-  /* background-color: red; */
-  width: 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 30px;
-  margin-left: auto;
-  transition: all ease-in-out;
-  animation: left-pre-load 0.5s 4 forwards;
-  /* flex: 1  ; */
+.pre-load video {
+  /* width: 80%;
+  height: 60%; */
+  object-fit: cover;
 }
 
-.pre-load-text{
-  color: white;
-  position: absolute;
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  content: url(https://img.icons8.com/color/344/calendar--v2.png);
+  font-size: 25px;
+}
+input[type="time"]::-webkit-calendar-picker-indicator{
+  font-size: 25px;
+}
+input[type='date']:before{
+  content: attr(placeholder);
+}
+input::-webkit-datetime-edit{
+  display: none;
+}
+
+.loader{
+  height: 200px;
+  width: 200px;
+  border: 18px solid rgb(244, 242, 242);
+  border-radius: 50%;
+  border-top: rgb(248, 169, 248) solid 18px;
+  animation: loading 1s linear infinite;
 }
 
 
@@ -137,5 +143,13 @@ button.awssld__next, button.awssld__prev{
   }100%{
     width: 30px;
     height: 30px;
+  }
+}
+
+@keyframes loading {
+  0%{
+    transform: rotate(0deg);
+  }100%{
+    transform: rotate(360deg);
   }
 }

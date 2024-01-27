@@ -99,7 +99,7 @@ const Header = () => {
             </span>
           </a>
           <Link to="/watch-live">
-            <div className="bg-purple-400 px-3 py-2 rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:animate-pulse duration-150 border-black border-3 hover:border hover:border-4 hover:border-white">
+            <div className="bg-purple-400 px-3 py-2 rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:text-white hover:animate-pulse duration-150 border-black border-3 hover:border hover:border-4 hover:border-white">
               <span>Watch Live</span>
             </div>
           </Link>
