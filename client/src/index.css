@@ -77,6 +77,18 @@ button.awssld__next, button.awssld__prev{
   object-fit: cover;
 }
 
+.personal-animate{
+  animation: sidebar-animate 0.3s linear;
+}
+
+.menu-container{
+  background-color: rgba(24, 23, 43, 0.565);
+}
+
+.menu-inner-container{
+  background-color: rgb(24, 23, 43);
+}
+
 
 input[type="date"]::-webkit-calendar-picker-indicator{
   content: url(https://img.icons8.com/color/344/calendar--v2.png);
@@ -151,5 +163,13 @@ input::-webkit-datetime-edit{
     transform: rotate(0deg);
   }100%{
     transform: rotate(360deg);
+  }
+}
+
+@keyframes sidebar-animate {
+  0%{
+      transform: translateX(-100%) rotate(5deg);
+  }100%{
+      transform: translateX(0%) rotate(-5deg);
   }
 }

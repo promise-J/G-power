@@ -9,6 +9,7 @@ import { MdOutlinePhoneEnabled } from "react-icons/md";
 import FaqItem from "../components/FaqItem";
 import { IoIosArrowDropup } from "react-icons/io";
 import useBookNowStore from "../zustard/BookNowStore";
+import Hero from "../components/Hero";
 
 
 const Homepage = () => {
@@ -51,6 +52,7 @@ const Homepage = () => {
   return (
     <div id='home'>
       <Slider />
+      <Hero />
         <IoIosArrowDropup cursor={'pointer'} onClick={handleClick} className="fixed right-3 md:right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
       <section id='about' className="flex mt-5 mb-10 flex-col md:flex-row">
         <div

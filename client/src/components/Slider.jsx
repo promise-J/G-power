@@ -8,7 +8,7 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 const Slider = () => {
   return (
-    <div className="">
+    <div className="block md:hidden">
       <AutoplaySlider
         animation="cubeAnimation"
         play={true}
@@ -17,20 +17,17 @@ const Slider = () => {
         cancelOnInteraction={false}
       >
         
-        <div data-src="/header1.png">
+        <div data-src="/worshiptwo.jpeg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
-            <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
+            <div data-aos='fade-left' className="text-white bg-whitefe h-1/2 w-full md:text-center flex flex-col justify-around opacity-[.7] md:p-5 p-2 rounded-2xl">
               <p className="text-3xl mb-5">
-                <span className="text-purple-400">Join</span> us every Sunday at 9:00am
+                <span className="text-purple-400">Join</span> us every Thursday at 9:00am
               </p>
-              <TypingEffect textArr={['<span className="text-purple-400">FAITH</span>', 'MEETS FELLOWSHIP']} classList='md:text-[120px] text-6xl md:mb-5' />
-              {/* <p>
-                Embrace the Power of Unity: Explore a Community Rooted in Faith,
-                Enriched by Fellowship, and United in Compassionate Service
-              </p> */}
+              <TypingEffect textArr={['<span className="text-purple-400">WELCOME</span>', "WE'RE GLAD YOU ARE HERE"]} classList='md:text-[120px] text-5xl md:mb-5' />
             </div>
           </div>
         </div>
+        {/*
         <div data-src="/worship2.jpeg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
@@ -41,10 +38,11 @@ const Slider = () => {
               {/* <p>
                 Embrace the Power of Unity: Explore a Community Rooted in Faith,
                 Enriched by Fellowship, and United in Compassionate Service
-              </p> */}
+              </p>
             </div>
           </div>
         </div>
+       
         <div data-src="/header1.png">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white md:h-1/2 md:text-center flex flex-col justify-center opacity-[.7] p-5 rounded-2xl">
@@ -55,10 +53,11 @@ const Slider = () => {
               {/* <p>
                 Embrace the Power of Unity: Explore a Community Rooted in Faith,
                 Enriched by Fellowship, and United in Compassionate Service
-              </p> */}
+              </p>
             </div>
           </div>
         </div>
+        */}
       </AutoplaySlider>
     </div>
   );

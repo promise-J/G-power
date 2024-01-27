@@ -24,6 +24,7 @@ function App() {
     return () => clearTimeout(timer);
   },[])
 
+
   useEffect(() => {
     AOS.init({
       duration: 2000,
