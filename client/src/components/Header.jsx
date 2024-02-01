@@ -15,9 +15,24 @@ const Header = () => {
     }
   };
 
+  window.addEventListener('scroll', function() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+  
+    // Calculate the scroll percentage
+    const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100;
+  
+    // Calculate the width of the line bar based on the scroll percentage
+    const lineWidth = scrollPercent + '%';
+  
+    // Set the width of the line bar
+    document.getElementById('line-bar').style.width = lineWidth;
+  });
+
 
   return (
-    <div className="bg-white h-[90px] absolute top-0 left-0 w-[100%] z-30 flex items-center px-5 justify-between">
+    <div className="bg-white h-[90px] fixed top-0 left-0 w-[100%] z-30 flex items-center px-5 justify-between">
       {/* Menu Box */}
       <div
         onClick={(e) => closeMenuBacklog(e)}
@@ -89,7 +104,7 @@ const Header = () => {
                   Gallery
                 </li>
               </Link>
-              <Link to="/watch-live" onClick={() => setShowMenu(false)}>
+              <a target="_blank" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=269758339310297" onClick={() => setShowMenu(false)}>
                 <li>
                   <div
                     className={`bg-purple-400 flex justify-center items-center px-3 py-2 w-[90%] rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:animate-pulse transition-duration-150`}
@@ -97,7 +112,7 @@ const Header = () => {
                     <span>Watch Live</span>
                   </div>
                 </li>
-              </Link>
+              </a>
             </ul>
           </div>
         </div>
@@ -156,11 +171,11 @@ const Header = () => {
               Gallery
             </span>
           </a>
-          <Link to="/watch-live">
+          <a target="_blank" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=269758339310297">
             <div className="bg-purple-400 px-3 py-2 rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:text-white hover:animate-pulse duration-150 border-black border-3 hover:border hover:border-4 hover:border-white">
               <span>Watch Live</span>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
       {!showMenu && (
@@ -172,6 +187,7 @@ const Header = () => {
           color="black"
         />
       )}
+      <div id="line-bar"></div>
     </div>
   );
 };

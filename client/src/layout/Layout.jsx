@@ -11,7 +11,7 @@ const Layout = () => {
     <div>
         {bookNowStore.show && <BookNowModal />}
         <Header />
-        <div className='bg-blue-900 h-[90px]'></div>
+        <div className='bg-white h-[90px]'></div>
         <Outlet />
         <Footer />
     </div>

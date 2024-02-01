@@ -44,6 +44,16 @@ body::-webkit-scrollbar-thumb {
 .sidebar{
   /* background-color: rgb(11, 16, 64); */
 }
+#line-bar {
+  width: 0;
+  height: 3px;
+  background-color: rgb(251, 114, 251);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: width 0.3s ease; /* Add transition for smooth width change */
+}
 
 button.awssld__next, button.awssld__prev{
   visibility: hidden;
