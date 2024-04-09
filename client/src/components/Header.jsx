@@ -109,7 +109,7 @@ const Header = () => {
                   <div
                     className={`bg-purple-400 flex justify-center items-center px-3 py-2 w-[90%] rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:animate-pulse transition-duration-150`}
                   >
-                    <span>Watch Live</span>
+                    <span className="text-white">Watch Live</span>
                   </div>
                 </li>
               </a>
@@ -173,7 +173,7 @@ const Header = () => {
           </a>
           <a target="_blank" href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=269758339310297">
             <div className="bg-purple-400 px-3 py-2 rounded-[20px] text-purple-900 cursor-pointer hover:bg-black hover:text-white hover:animate-pulse duration-150 border-black border-3 hover:border hover:border-4 hover:border-white">
-              <span>Watch Live</span>
+              <span className="text-white">Watch Live</span>
             </div>
           </a>
         </div>

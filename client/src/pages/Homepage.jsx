@@ -83,8 +83,9 @@ const Homepage = () => {
         <div className="p-4 flex flex-[1.5] justify-center items-center">
           <div className="h-[400px] w-[400px]">
             <img
+              onLoad={()=> console.log('loaded')}
               data-aos="flip-up"
-              className="h-full md:rounded-full shadow-lg shadow-black"
+              className="h-full md:rounded-full shadow-sm shadow-black"
               src="/gp.png"
               alt="image-here"
             />
@@ -96,7 +97,7 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full md:rounded-full shadow-lg shadow-black"
+              className="h-full md:rounded-full shadow-black"
               src="/miss.png"
               alt="image-here"
             />
@@ -156,7 +157,7 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full md:rounded-full  shadow-lg shadow-black"
+              className="h-full md:rounded-full shadow-black"
               src="/mission.jpeg"
               alt="image-here"
             />
@@ -219,7 +220,7 @@ const Homepage = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
           <div data-aos='zoom-in' className="p-2">
             <img src="/christmas.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
-            <div className="shadow-lg p-3 rounded-[20px]">
+            <div className="p-3 rounded-[20px]">
               <p className="my-4 font-semibold text-lg">Christmas Programme</p>
               <div className="flex">
                 <div className="flex-1">
@@ -243,7 +244,7 @@ const Homepage = () => {
           </div>
           <div data-aos='zoom-in' className="p-2">
             <img src="/new_year.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
-            <div className="shadow-lg rounded-[20px] p-3">
+            <div className="rounded-[20px] p-3">
               <p className="my-4 font-semibold text-lg">Ekpere Awka North.</p>
               <div className="flex">
                 <div className="flex-1">
@@ -281,7 +282,7 @@ const Homepage = () => {
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
             <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
-            <div className="shadow-lg p-3">
+            <div className="p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne - 04-11-2023</p>
             </div>
           </div>
@@ -290,14 +291,14 @@ const Homepage = () => {
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
             <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
-            <div className="shadow-lg p-3">
+            <div className="p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne2 - 02-11-2024</p>
             </div>
           </div>
         </div>
       </section>
       <section id='contact' className="flex md:p-10 my-10 flex-col md:flex-row">
-        <div className="md:ps-20 p-5 flex-1 shadow-lg">
+        <div className="md:ps-20 p-5 flex-1">
           <h1 className="text-4xl my-4">Contact <span className="text-purple-400">US</span></h1>
           <p className="my-10 text-lg">Connect with us. Our doors are open to support and welcome you into our faith-filled community</p>
           <div>
@@ -308,9 +309,9 @@ const Homepage = () => {
           </div>
         </div>
         <div className="flex-1 md:p-10 p-3 flex flex-col gap-5">
-          <input type="text" placeholder="Enter your Full name" className="p-3 rounded-[15px] shadow-lg outline-none" />
-          <input type="text" placeholder="Enter your Email" className="p-3 rounded-[15px] shadow-lg outline-none" />
-          <textarea name="" id="" cols="30" rows="10" className="p-3 rounded-[15px] outline-none shadow-lg" placeholder="Message..."></textarea>
+          <input type="text" placeholder="Enter your Full name" className="p-3 rounded-[15px] outline-none" />
+          <input type="text" placeholder="Enter your Email" className="p-3 rounded-[15px] outline-none" />
+          <textarea name="" id="" cols="30" rows="10" className="p-3 rounded-[15px] outline-none" placeholder="Message..."></textarea>
           <button className="bg-purple-400 text-white py-2 rounded-xl animate-bounce">Send Message</button>
         </div>
       </section>

@@ -1,29 +1,47 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import useBookNowStore from "../zustard/BookNowStore";
 
 const initialState = {
   date: "",
   time: "",
-  fTime: "",
-  fDate: ""
 };
 
 const BookNowModal = () => {
+  const modalRef = useRef(null);
+
   const bookNowStore = useBookNowStore();
   const [bookingDetails, setBookingDetails] = useState(initialState);
+  const [fDate, setFDate] = useState('')
+  const [fTime, setFTime] = useState('')
   const { date, time } = bookingDetails;
-
+  
+  const closeModalBacklog = (e) => {
+    if (e.target != modalRef.current) {
+      bookNowStore.onClose();
+    }
+  };
   const closeModal = () => {
     bookNowStore.onClose();
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBookingDetails({ [name]: value });
+    if(name=='date' && value){
+      let formDate = formatDateString(value)
+      setFDate(formDate)
+    }else if(name=='time' && value){
+      if(!date){
+        return alert('please enter a date') 
+       }
+      let formTime = formatTimeString(value)
+      setFTime(formTime)
+    }
+    setBookingDetails({...bookingDetails, [name]: value });
   };
 
   function formatTimeString(string) {
-    const inputTime = "09:00"; // Sample input time in HH:MM format
+    const inputTime = string // Sample input time in HH:MM format
+    console.log(date,'the input time')
     const time = new Date(`${date}T${inputTime}:00`);
 
     // Options for formatting the time
@@ -31,18 +49,23 @@ const BookNowModal = () => {
       hour: "numeric",
       minute: "numeric",
       hour12: true,
-      timeZoneName: "short",
+      // timeZoneName: "short",
     };
 
     // Formatting the time using toLocaleTimeString()
     const formattedTime = time.toLocaleTimeString("en-US", options);
-    console.log(formattedTime);
+    console.log(formattedTime, 'from inside');
     return formattedTime;
   }
 
   function formatDateString(string) {
+    const currentDate = new Date()
     const inputDate = string;
     const date = new Date(inputDate);
+    if(date < currentDate){
+      return alert('Please choose a valid day')
+    }
+    console.log(date,'the date')
 
     const options = {
       weekday: "long",
@@ -52,14 +75,12 @@ const BookNowModal = () => {
     };
 
     const formattedDate = date.toLocaleDateString("en-GB", options);
-
-    setBookingDetails({...bookingDetails, fDate: formattedDate})
     return formattedDate;
   }
 
   return (
-    <div className="fixed top-0 left-0 bg-gray-400 z-40 h-full w-full flex py-8 justify-center">
-      <div className="bg-white md:p-10 md:w-1/2 flex flex-col gap-5">
+    <div onClick={(e)=> closeModalBacklog(e)} className="fixed top-0 left-0 bg-gray-400 z-40 h-full w-full flex py-8 justify-center">
+      <div ref={modalRef} onClick={(e)=> e.stopPropagation()} className="bg-white md:p-10 md:w-1/2 flex flex-col gap-5">
         <div className="shadow-lg flex-1">
           <h2 className="text-center text-lg md:text-3xl text-uppercase font-semibold">
             APPOINTMENT TIME
@@ -78,7 +99,7 @@ const BookNowModal = () => {
             </div>
             <div>
               <h6 className="text-center mt-4">
-                {date && bookingDetails?.fDate}
+                {fDate && fDate}
               </h6>
             </div>
           </div>
@@ -86,8 +107,8 @@ const BookNowModal = () => {
             <div className="flex items-center justify-center gap-10">
               <h3>Pick a time?</h3>
               <input
-                name="date"
-                value={date}
+                name="time"
+                value={time}
                 onChange={handleChange}
                 type="time"
                 className={`cursor-pointer ${!time && "animate-bounce"}`}

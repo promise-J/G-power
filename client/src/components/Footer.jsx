@@ -8,12 +8,13 @@ import { CiLocationOn } from "react-icons/ci";
 
 const Footer = () => {
   return (
+    <div>
     <div className="bg-blue-900 text-white p-1 md:p-20 gap-20 md:gap-0 grid lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
       <div className="flex flex-col gap-5 py-5 px-5">
         <Link to="/">
-          <img src="/vite.svg" />
+          <img className="bg-transparent rounded-full h-[40px] w-[40px]" src="/globe.jpeg" />
         </Link>
-        <div className="flex flex-col gap-5 px-5">
+        <div className="flex flex-col gap-5">
           <p className="text-lg">Connect with us</p>
           <div className="flex gap-4">
             <FaXTwitter />
@@ -22,7 +23,7 @@ const Footer = () => {
             <AiOutlineYoutube />
           </div>
         </div>
-        <div>
+        <div className="flex items-center gap-4 py-1">
           <CiLocationOn />
           Awka, Anambra State.
         </div>
@@ -44,15 +45,18 @@ const Footer = () => {
         </div>
         <p>FAQs</p>
       </div>
-      <div className="text-lg flex flex-col gap-5 md:ps-3">
+      <div className="text-lg flex flex-col gap-5 pb-4 px-5">
         <h1 className="text-2xl">Stay in touch</h1>
         <p>Subscribe</p>
-        <div className="">
-        <input type="text" placeholder="Enter Email" className="md:p-2 p-1 rounded-bl-[25px] rounded-tl-[25px]" />
+        <div className="flex">
+        <input type="text" placeholder="Enter Email" className="md:p-2 p-1 w-[130px] rounded-bl-[25px] rounded-tl-[25px]" />
         <button className="text-white bg-purple-400 px-1 py-1 md:py-2 md:px-4 rounded-tr-[25px] rounded-br-[25px]">Subscribe</button>
         </div>
       </div>
-      <p> &copy; God’s Power Outreach Ministry. All Rights Reserved</p>
+    </div>
+      <div className="grid-col-3">
+      <p className="p-4 text-[14px] text-center"> &copy; God’s Power Outreach Ministry. All Rights Reserved</p>
+      </div>
     </div>
   );
 };
