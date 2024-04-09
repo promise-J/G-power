@@ -2,7 +2,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const allRoutes = require("./routes/router");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,7 +16,7 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  mongoose.connect(process.env.DB_URL).then(() => {
-    console.log(`Server running on port and DB connected ${port}`);
-  });
+  console.log(`Server running on port and DB connected ${port}`);
+  // mongoose.connect(process.env.DB_URL).then(() => {
+  // });
 });
