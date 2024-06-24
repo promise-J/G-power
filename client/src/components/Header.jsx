@@ -121,7 +121,7 @@ const Header = () => {
       {/* Menu box ends */}
       <div className="flex justify-center items-center">
         <Link to="/">
-          <img className="h-[45px]" src="/globe.jpeg" />
+          <img className="h-[45px]" src="/globe.png" />
         </Link>
       </div>
       <div className="flex-[9] hidden md:flex justify-end pe-10 h-full">

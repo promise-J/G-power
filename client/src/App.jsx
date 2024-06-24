@@ -14,6 +14,10 @@ import Vision from "./pages/Vision";
 import Gallery from "./pages/Gallery";
 import WatchLive from "./pages/WatchLive";
 import Preload from "./components/Preload";
+import AdminLogin from "./pages/admin/AdminLogin";
+import Member from "./pages/admin/Member";
+import MediaHeaders from "./pages/admin/MediaHeaders";
+import ManageGallery from "./pages/admin/ManageGallery";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -32,18 +36,26 @@ function App() {
     // AOS.refresh();
   }, []);
 
-  if (loading) {
-    return (
-      <Preload />
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <Preload />
+  //   );
+  // }
 
   return (
     <Router>
       <Routes>
-        <Route path="/dashboard" element={<AdminLayout />}>
-          <Route element={<HomeDashboard />} index />
-          <Route element={<Members />} path="members" />
+        <Route path="/gp-admin" element={<AdminLayout />}>
+          <Route element={<AdminLogin />} index />
+          <Route path="dashboard" >
+            <Route element={<HomeDashboard />} index />
+            <Route element={<Members />} path="members" />
+            <Route element={<MediaHeaders />} path="media-headers" />
+            <Route element={<ManageGallery />} path="manage-gallery" />
+            <Route element={<Member />} path="member/:id" />
+            <Route element={<Member />} path="member" />
+            <Route element={<Member />} path="programmes" />
+          </Route>
         </Route>
         <Route path="/" element={<Layout />}>
           <Route element={<Homepage />} index />
@@ -53,7 +65,7 @@ function App() {
           <Route element={<Vision />} path="/vision" />
           <Route element={<Mission />} path="/mission" />
           <Route element={<WatchLive />} path="/watch-live" />
-          <Route element={<AdminLayout />} path="/dashboard" />
+          {/* <Route element={<AdminLayout />} path="/dashboard" /> */}
         </Route>
       </Routes>
     </Router>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import { CiCalendarDate } from "react-icons/ci";
 import { MdAccessTime } from "react-icons/md";
@@ -10,14 +10,43 @@ import FaqItem from "../components/FaqItem";
 import { IoIosArrowDropup } from "react-icons/io";
 import useBookNowStore from "../zustard/BookNowStore";
 import Hero from "../components/Hero";
+import TawkTo from "../Tawkto";
+import { SERVER_URL } from "../../lib/constants";
+import axios from "axios";
+
+// <!--Start of Tawk.to Script-->
+// <script type="text/javascript">
+// var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+// (function(){
+// var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+// s1.async=true;
+// s1.src='https://embed.tawk.to/667304acdd590416e257cc06/1i0okknf0';
+// s1.charset='UTF-8';
+// s1.setAttribute('crossorigin','*');
+// s0.parentNode.insertBefore(s1,s0);
+// })();
+// </script>
+// <!--End of Tawk.to Script-->
 
 
 const Homepage = () => {
+  const [media, setMedia] = useState(null)
+
+  useEffect(()=>{
+    const getMediaContent = async ()=>{
+      const {data: res} = await axios.get(`${SERVER_URL}/media/mediaHeaderImages`)
+      setMedia(res.data)
+    }
+
+    getMediaContent()
+  },[])
 
   const bookNowStore = useBookNowStore()
   const openBooking = ()=> {
     bookNowStore.onOpen()
   }
+
+  console.log(media)
 
   const smoothScroll = (target, duration) => {
     const targetElement = document.querySelector(target);
@@ -51,6 +80,7 @@ const Homepage = () => {
 
   return (
     <div id='home'>
+      <TawkTo />
       <Slider />
       <Hero />
         <IoIosArrowDropup cursor={'pointer'} onClick={handleClick} className="fixed right-3 md:right-20 bottom-20 z-20 animate-bounce bg-white rounded-full border border-black border-6" size={60} color="purple" />
@@ -64,7 +94,7 @@ const Homepage = () => {
               About <span className="text-purple-400">US</span>
             </h1>
             <p data-aos="zoom-in" className="my-4 text-lg">
-              At God's Power Outreach Ministry, we unite in faith, love, and
+              At Gods Power Outreach Ministry, we unite in faith, love, and
               service, fostering spiritual growth and connections for all. Our
               inclusive mission embraces diversity, creating a valued and
               compassionate space for everyone. Guided by our devotion to God,
@@ -83,10 +113,10 @@ const Homepage = () => {
         <div className="p-4 flex flex-[1.5] justify-center items-center">
           <div className="h-[400px] w-[400px]">
             <img
-              onLoad={()=> console.log('loaded')}
+              // onLoad={()=> console.log('loaded')}
               data-aos="flip-up"
-              className="h-full md:rounded-full shadow-sm shadow-black"
-              src="/gp.png"
+              className="h-full md:rounded-[30px] shadow-sm shadow-black"
+              src={media?.about_header?.imageUrl}
               alt="image-here"
             />
           </div>
@@ -97,8 +127,8 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full md:rounded-full shadow-black"
-              src="/miss.png"
+              className="h-full md:rounded-[30px] shadow-black"
+              src={media?.mission_header?.imageUrl}
               alt="image-here"
             />
           </div>
@@ -112,10 +142,10 @@ const Homepage = () => {
               Our <span className="text-purple-400">Mission</span>
             </h1>
             <p data-aos="zoom-in" className="my-4 text-lg">
-              At God's Power Outreach Ministry, we strive to embody Christ's
+              At Gods Power Outreach Ministry, we strive to embody Christ's
               love, nurturing a compassionate and inclusive community grounded
               in faith. Our mission is to foster spiritual growth, embrace
-              diversity, and ensure everyone feels valued. Guided by God's
+              diversity, and ensure everyone feels valued. Guided by Gods
               message of love, we're dedicated to making a meaningful impact
               within our congregation and the broader community.
             </p>
@@ -138,12 +168,12 @@ const Homepage = () => {
               Our <span className="text-purple-400">Vision</span>
             </h1>
             <p data-aos="zoom-in" className="my-4 text-lg">
-              At God's Power Outreach Ministry, our vision is a vibrant
-              community grounded in God's love and grace. We strive for
+              At Gods Power Outreach Ministry, our vision is a vibrant
+              community grounded in Gods love and grace. We strive for
               inclusivity, fostering a place where diverse backgrounds unite in
               spiritual growth. Guided by Christ's teachings, our vision is a
               congregation actively engaged in impactful worship, fellowship,
-              and outreach, extending God's love to all.
+              and outreach, extending Gods love to all.
             </p>
             <button
               data-aos="fade-up"
@@ -157,8 +187,8 @@ const Homepage = () => {
           <div className="h-[400px] w-[400px]">
             <img
               data-aos="flip-up"
-              className="h-full md:rounded-full shadow-black"
-              src="/mission.jpeg"
+              className="h-full md:rounded-[30px] shadow-black"
+              src={media?.vision_header?.imageUrl}
               alt="image-here"
             />
           </div>
@@ -176,36 +206,21 @@ const Homepage = () => {
         </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
-          <div data-aos='fade-up' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g1.png" className="h-full w-full" alt="image-here" />
-            </div>
+          {
+            media?.gallery_images.length > 1 ?
+            media?.gallery_images.map((gallery, idx)=>(
+              <div data-aos={idx%2 == 0 ? 'fade-up' : 'fade-down'} className=" flex justify-center items-center">
+                <div className="h-[90%] w-[90%]">
+                <img src={gallery.imageUrl} className="h-full w-full" alt="image-here" />
+                </div>
+              </div> 
+            ))
+          : 
+          <div>
+          <h2 className="text-5xl text-center">Gallery coming soon</h2>
           </div>
-          <div data-aos='fade-down' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g2.png" className="h-full w-full" alt="image-here" />
-            </div>
-          </div>
-          <div data-aos='fade-up' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g3.png" className="h-full w-full" alt="image-here" />
-            </div>
-          </div>
-          <div data-aos='fade-down' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g4.png" className="h-full w-full" alt="image-here" />
-            </div>
-          </div>
-          <div data-aos='fade-up' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g5.png" className="h-full w-full" alt="image-here" />
-            </div>
-          </div>
-          <div data-aos='fade-down' className=" flex justify-center items-center">
-            <div className="h-[90%] w-[90%]">
-            <img src="/g6.png" className="h-full w-full" alt="image-here" />
-            </div>
-          </div>
+          }
+
         </div>
       </section>
       <section id="events" className="my-10">
@@ -219,7 +234,7 @@ const Homepage = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
           <div data-aos='zoom-in' className="p-2">
-            <img src="/christmas.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
+            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712660310/christmas_nxjlyb.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
             <div className="p-3 rounded-[20px]">
               <p className="my-4 font-semibold text-lg">Christmas Programme</p>
               <div className="flex">
@@ -243,7 +258,7 @@ const Homepage = () => {
             </div>
           </div>
           <div data-aos='zoom-in' className="p-2">
-            <img src="/new_year.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
+            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712660312/new_year_tg4cms.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
             <div className="rounded-[20px] p-3">
               <p className="my-4 font-semibold text-lg">Ekpere Awka North.</p>
               <div className="flex">
@@ -281,7 +296,7 @@ const Homepage = () => {
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
+            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
             <div className="p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne - 04-11-2023</p>
             </div>
@@ -290,7 +305,7 @@ const Homepage = () => {
             <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
             <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
             </div>
-            <img src="/gp.png" alt="image-here" className="rounded-[20px]" />
+            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
             <div className="p-3">
               <p data-aos='zoom-in' className="my-4">With Christ on His Throne2 - 02-11-2024</p>
             </div>
@@ -312,7 +327,7 @@ const Homepage = () => {
           <input type="text" placeholder="Enter your Full name" className="p-3 rounded-[15px] outline-none" />
           <input type="text" placeholder="Enter your Email" className="p-3 rounded-[15px] outline-none" />
           <textarea name="" id="" cols="30" rows="10" className="p-3 rounded-[15px] outline-none" placeholder="Message..."></textarea>
-          <button className="bg-purple-400 text-white py-2 rounded-xl animate-bounce">Send Message</button>
+          <button className="bg-purple-400 text-white py-2 rounded-xl">Send Message</button>
         </div>
       </section>
       <section id="faq" className="md:ps-10 ps-3 mb-10 md:px-20">

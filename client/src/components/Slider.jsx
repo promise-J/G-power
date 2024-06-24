@@ -17,7 +17,7 @@ const Slider = () => {
         cancelOnInteraction={false}
       >
         
-        <div data-src="/worshiptwo.jpeg">
+        <div data-src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659676/worshiptwo_xa9grz.jpg">
           <div className="absolute left-1 w-[90%] h-[100%] top-0 flex justify-center items-center">
             <div data-aos='fade-left' className="text-white bg-whitefe h-1/2 w-full md:text-center flex flex-col justify-around opacity-[.7] md:p-5 p-2 rounded-2xl">
               <p className="text-3xl mb-5">

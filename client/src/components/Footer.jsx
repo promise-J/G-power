@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="bg-blue-900 text-white p-1 md:p-20 gap-20 md:gap-0 grid lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4">
       <div className="flex flex-col gap-5 py-5 px-5">
         <Link to="/">
-          <img className="bg-transparent rounded-full h-[40px] w-[40px]" src="/globe.jpeg" />
+          <img className="bg-transparent rounded-full h-[40px] w-[40px]" src="/globe.png" />
         </Link>
         <div className="flex flex-col gap-5">
           <p className="text-lg">Connect with us</p>
@@ -49,13 +49,13 @@ const Footer = () => {
         <h1 className="text-2xl">Stay in touch</h1>
         <p>Subscribe</p>
         <div className="flex">
-        <input type="text" placeholder="Enter Email" className="md:p-2 p-1 w-[130px] rounded-bl-[25px] rounded-tl-[25px]" />
-        <button className="text-white bg-purple-400 px-1 py-1 md:py-2 md:px-4 rounded-tr-[25px] rounded-br-[25px]">Subscribe</button>
+        <input type="text" placeholder="Enter Email" className="md:p-2 p-1 w-[130px] text-black text-[12px] rounded-bl-[25px] rounded-tl-[25px]" />
+        <button className="text-white text-[12px] bg-purple-400 px-1 py-1 md:py-2 md:px-2 rounded-tr-[25px] rounded-br-[25px]">Subscribe</button>
         </div>
       </div>
     </div>
       <div className="grid-col-3">
-      <p className="p-4 text-[14px] text-center"> &copy; God’s Power Outreach Ministry. All Rights Reserved</p>
+      <p className="p-4 text-[14px] text-center"> &copy; Gods Power Outreach Ministry. All Rights Reserved</p>
       </div>
     </div>
   );
