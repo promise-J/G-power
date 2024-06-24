@@ -63,6 +63,16 @@ class UserController extends BaseController {
     }
   }
 
+  async uploadFile(req, res) {
+    try {
+      console.log(req.files)
+      return UserController.sendSuccessResponse(res, { message: 'File uploaded successfully' });
+    } catch (error) {
+        console.log(error, 'the error')
+        return UserController.sendFailedResponse(res, this.server_error)
+    }
+  }
+
 }
 
 

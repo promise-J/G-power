@@ -1,7 +1,9 @@
 const UserController = require('../controllers/user.controller')
 const auth = require('../middleware/auth')
+const {image_uploader} = require('../middleware/upload')
 
 const router = require('express').Router()
+
 
 router.post('/register', async (req, res)=>{
     const userController = new UserController()
@@ -16,6 +18,11 @@ router.post('/login', async (req, res)=>{
 router.get('/profile', [auth], async (req, res)=>{
     const userController = new UserController()
     await userController.getProfile(req, res)
+})
+
+router.post('/file-upload', [image_uploader.single('image')], async (req, res)=>{
+    const userController = new UserController()
+    await userController.uploadFile(req, res)
 })
 
 module.exports = router

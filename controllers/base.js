@@ -12,7 +12,7 @@ class BaseController{
     static sendSuccessResponse(res, data){
         const result = {success: true}
         result.data = data
-        return res.status(401).json(result)
+        return res.status(201).json(result)
     }
 }
 
