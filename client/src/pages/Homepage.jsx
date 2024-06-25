@@ -30,6 +30,7 @@ import axiosInstance from "../../lib/axiosRequest";
 
 const Homepage = () => {
   const [media, setMedia] = useState(null)
+  const [upcomingEvents, setUpcomingEvents] = useState([])
 
   useEffect(()=>{
     const getMediaContent = async ()=>{
@@ -39,13 +40,19 @@ const Homepage = () => {
 
     getMediaContent()
   },[])
+  useEffect(()=>{
+    const getUpcomingEvents = async ()=>{
+      const {data: res} = await axiosInstance.get(`/events/upcoming`)
+      setUpcomingEvents(res.data)
+    }
+
+    getUpcomingEvents()
+  },[])
 
   const bookNowStore = useBookNowStore()
   const openBooking = ()=> {
     bookNowStore.onOpen()
   }
-
-  console.log(media)
 
   const smoothScroll = (target, duration) => {
     const targetElement = document.querySelector(target);
@@ -75,6 +82,7 @@ const Homepage = () => {
   const handleClick = () => {
     smoothScroll('#home', 2000); // Adjust target element and duration as needed
   };
+
 
 
   return (
@@ -208,7 +216,7 @@ const Homepage = () => {
           {
             media?.gallery_images.length > 0 ?
             media?.gallery_images.map((gallery, idx)=>(
-              <div data-aos={idx%2 == 0 ? 'fade-up' : 'fade-down'} className=" flex justify-center items-center">
+              <div key={gallery.publicId} data-aos={idx%2 == 0 ? 'fade-up' : 'fade-down'} className=" flex justify-center items-center">
                 <div className="h-[90%] w-[90%]">
                 <img src={gallery?.imageUrl} className="h-full w-full" alt="image-here" />
                 </div>
@@ -232,54 +240,36 @@ const Homepage = () => {
         </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
+          {
+            upcomingEvents.length > 0 ?
+            upcomingEvents.map(event=>(
           <div data-aos='zoom-in' className="p-2">
-            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712660310/christmas_nxjlyb.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
+            <img src={event?.image.imageUrl} alt={event?.title} className="rounded-tr-[20px] w-full max-h-[300px] rounded-tl-[20px]" />
             <div className="p-3 rounded-[20px]">
-              <p className="my-4 font-semibold text-lg">Christmas Programme</p>
+              <p className="my-4 font-semibold text-lg">{event?.title}</p>
               <div className="flex">
                 <div className="flex-1">
                   <div data-aos='zoom-in' className="flex p-2 gap-2 items-center">
                   <MdAccessTime cursor={'pointer'} size={20} />
-                  09:00 AM
+                  {event?.time}
                   </div>
                   <div data-aos='zoom-in' className="flex p-2 gap-2 items-center">
                   <CiLocationOn cursor={'pointer'} size={20} />
-                  Awka, Anambra state.
+                  {event?.location}
                   </div>
                 </div>
                 <div className="flex-1">
                   <div data-aos='zoom-out' className="flex p-2 gap-2 items-center">
                   <CiCalendarDate cursor={'pointer'} size={20} />
-                  25th Dec, 2023.
+                  {event?.date}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div data-aos='zoom-in' className="p-2">
-            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712660312/new_year_tg4cms.png" alt="image-here" className="rounded-tr-[20px] rounded-tl-[20px]" />
-            <div className="rounded-[20px] p-3">
-              <p className="my-4 font-semibold text-lg">Ekpere Awka North.</p>
-              <div className="flex">
-                <div className="flex-1">
-                  <div data-aos='zoom-in' className="flex p-2 gap-2 items-center">
-                  <MdAccessTime cursor={'pointer'} size={20} />
-                  09:00 AM
-                  </div>
-                  <div data-aos='zoom-in' className="flex p-2 gap-2 items-center">
-                  <CiLocationOn cursor={'pointer'} size={20} />
-                  Awka, Anambra state.
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div data-aos='zoom-out' className="flex p-2 gap-2 items-center">
-                  <CiCalendarDate cursor={'pointer'} size={20} />
-                  2nd Jan, 2024.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            )) :
+            <h2 className="text-center text-4xl">Coming soon</h2>
+        }
         </div>
       </section>
       <section id="audio-messages" className="my-10">

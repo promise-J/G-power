@@ -143,12 +143,6 @@ class MediaHeaderController extends BaseController {
         return MediaHeaderController.sendFailedResponse(res, {error: 'Media not found. Consider creating a media header in the homepage'})
       }
 
-      // let gallery_images = current_media.gallery_images
-
-      // gallery_images = gallery_images.filter(gall=> gall.publicId != publicId)
-      // current_media.gallery_images = gallery_images
-      // await current_media.save()
-
     } catch (error) {
         console.log(error)
         return MediaHeaderController.sendFailedResponse(res, this.server_error)

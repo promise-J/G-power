@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { SERVER_URL } from '../../../lib/constants'
 import { toast } from "react-toastify";
 import axiosInstance from '../../../lib/axiosRequest';
+import { getFileExtension } from '../../../lib';
 
 const MediaHeaders = () => {
   const [file, setFile] = useState(null)
@@ -64,9 +64,6 @@ const handleSubmit = (e, media_type) =>{
     imageUpload()
 }
 
-const getFileExtension = (filename) => {
-    return filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2).toLowerCase();
-};
 
   return (
     <div className='mt-[50px]'>

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { toast } from "react-toastify";
-import { SERVER_URL } from "../../../lib/constants";
 import axiosInstance from "../../../lib/axiosRequest";
+import { getFileExtension } from "../../../lib";
 
 const ManageGallery = () => {
   const [file, setFile] = useState(null);
@@ -53,6 +53,7 @@ const ManageGallery = () => {
     const imageUpload = async () => {
       const formData = new FormData();
       formData.append("image", file);
+      console.log(formData)
       const res = await axiosInstance.post(`/media/addMediaGallery`,formData);
       if (res.data.success) {
         setTimeout(() => {
@@ -62,12 +63,6 @@ const ManageGallery = () => {
       }
     };
     imageUpload();
-  };
-
-  const getFileExtension = (filename) => {
-    return filename
-      .slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2)
-      .toLowerCase();
   };
 
 

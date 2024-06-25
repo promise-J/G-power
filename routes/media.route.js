@@ -7,19 +7,19 @@ const router = require('express').Router()
 
 router.post('/mediaHeaderImages', image_uploader.array('image'),async (req, res)=>{
     const mediaController = new MediaHeaderController()
-    await mediaController.manageAboutImage(req, res)
+    return await mediaController.manageAboutImage(req, res)
 })
 router.post('/addMediaGallery', image_uploader.array('image'),async (req, res)=>{
     const mediaController = new MediaHeaderController()
-    await mediaController.addGallery(req, res)
+    return await mediaController.addGallery(req, res)
 })
 router.get('/mediaHeaderImages', async (req, res)=>{
     const mediaController = new MediaHeaderController()
-    await mediaController.getMediaImages(req, res)
+    return await mediaController.getMediaImages(req, res)
 })
 router.delete('/addMediaGallery/:media_id', async (req, res)=>{
     const mediaController = new MediaHeaderController()
-    await mediaController.removeGalleryImage(req, res)
+    return await mediaController.removeGalleryImage(req, res)
 })
 
 

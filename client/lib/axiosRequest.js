@@ -8,9 +8,9 @@ const baseURL = remote
 // Create axios instance with base URL
 const axiosInstance = axios.create({
   baseURL: baseURL, // Replace with your base URL
-  headers: {
-    'Content-Type': 'application/json', // Example headers
-  },
+//   headers: {
+//     'Content-Type': 'application/json', // Example headers
+//   },
 });
 
 export default axiosInstance;

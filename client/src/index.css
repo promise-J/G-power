@@ -123,6 +123,21 @@ input::-webkit-datetime-edit{
   animation: loading 1s linear infinite;
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #dddddd;
+}
+
+td, th, tr {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 5px;
+}
+
+
+
 
 @keyframes left-pre-load {
   0%{
