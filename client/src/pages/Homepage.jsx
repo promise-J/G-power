@@ -210,7 +210,7 @@ const Homepage = () => {
             media?.gallery_images.map((gallery, idx)=>(
               <div data-aos={idx%2 == 0 ? 'fade-up' : 'fade-down'} className=" flex justify-center items-center">
                 <div className="h-[90%] w-[90%]">
-                <img src={gallery.imageUrl} className="h-full w-full" alt="image-here" />
+                <img src={gallery?.imageUrl} className="h-full w-full" alt="image-here" />
                 </div>
               </div> 
             ))
