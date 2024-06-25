@@ -17,6 +17,10 @@ router.get('/mediaHeaderImages', async (req, res)=>{
     const mediaController = new MediaHeaderController()
     await mediaController.getMediaImages(req, res)
 })
+router.delete('/addMediaGallery/:media_id', async (req, res)=>{
+    const mediaController = new MediaHeaderController()
+    await mediaController.removeGalleryImage(req, res)
+})
 
 
 

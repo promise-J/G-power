@@ -38,6 +38,9 @@ const Sidebar = ({showSidebar, setShowSidebar}) => {
         <Link to={'/gp-admin/dashboard/manage-gallery'} onClick={()=> setShowSidebar(false)}>
         <li className='flex cursor-pointer items-center px-1 py-3'><RxDashboard className='hover:text-purple-200' color='white' /> <span className='ms-3 text-gray-500 hover:text-purple-200 duration-200'>Manage Gallery</span></li>
         </Link>
+        <Link to={'/gp-admin/dashboard/upcoming-events'} onClick={()=> setShowSidebar(false)}>
+        <li className='flex cursor-pointer items-center px-1 py-3'><RxDashboard className='hover:text-purple-200' color='white' /> <span className='ms-3 text-gray-500 hover:text-purple-200 duration-200'>Manage Events</span></li>
+        </Link>
       </ul>
       <h4 className='mt-5 mb-3 ms-2 font-bold text-xl text-gray-400'>Short cuts</h4>
       <ul style={{transition: '3s'}} className={`px-4 min-w-[300px] mt-4`}>

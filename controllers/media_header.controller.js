@@ -1,6 +1,6 @@
 const BaseController = require("./base");
 const MediaHeaderModel = require("../models/media_header.model");
-const { processImages, imageCleanUp } = require("../middleware/upload");
+const { processImages, imageCleanUp, deleteImage } = require("../middleware/upload");
 const { empty } = require("../util");
 
 class MediaHeaderController extends BaseController {
@@ -106,6 +106,48 @@ class MediaHeaderController extends BaseController {
       }else{
         return MediaHeaderController.sendFailedResponse(res, {error: 'Provide image to proceed'})
       }
+
+    } catch (error) {
+        console.log(error)
+        return MediaHeaderController.sendFailedResponse(res, this.server_error)
+    }
+  }
+  async removeGalleryImage(req, res) {
+    try {
+      const publicId = req.query.publicId
+      const media_id = req.params.media_id
+      
+      if (empty(publicId) || empty(media_id)) {
+        return MediaHeaderController.sendFailedResponse(
+          res,
+          {error: "Please provide correct params"}
+        );
+      }
+
+
+      const current_media = await MediaHeaderModel.findOne({minsitry: 'godspower'})
+      if(empty(current_media)){
+        return MediaHeaderController.sendFailedResponse(res, {error: 'Seem there is no current media gallery'})
+      }
+
+      const updatedMedia = await MediaHeaderModel.findOneAndUpdate(
+        { _id: media_id },
+        { $pull: { gallery_images: { publicId: publicId } } },
+        { new: true }
+      );
+
+      if (updatedMedia) {
+        await deleteImage(publicId)
+        return MediaHeaderController.sendSuccessResponse(res, updatedMedia)
+      } else {
+        return MediaHeaderController.sendFailedResponse(res, {error: 'Media not found. Consider creating a media header in the homepage'})
+      }
+
+      // let gallery_images = current_media.gallery_images
+
+      // gallery_images = gallery_images.filter(gall=> gall.publicId != publicId)
+      // current_media.gallery_images = gallery_images
+      // await current_media.save()
 
     } catch (error) {
         console.log(error)

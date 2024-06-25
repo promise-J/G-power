@@ -10,7 +10,7 @@ const UpcomingEventsSchema = new mongoose.Schema({
         required: true,
     },
     image: {
-        type: [{publicId: String, imageUrl: String}],
+        type: {},
         required: true
     },
     location: {

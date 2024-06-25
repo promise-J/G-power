@@ -9,7 +9,13 @@ const ManageGallery = () => {
   const [media, setMedia] = useState(null);
 
   const handleDelete = async (publicId) => {
-    confirm("Are you sure you want to delete?");
+    const isDelete = confirm("Are you sure you want to delete?");
+    if(isDelete){
+      const {data: res} = await axios.delete(`${SERVER_URL}/media/addMediaGallery/${media?._id}?publicId=${publicId}`)
+      if(res.success === true){
+        window.location.reload()
+      }
+    }
   };
 
   useEffect(() => {
@@ -23,7 +29,7 @@ const ManageGallery = () => {
     getMediaContent();
   }, []);
 
-  console.log(media);
+
 
   const handleImageChange = (e) => {
     const allowedExtensions = ["jpg", "jpeg", "png"];
@@ -53,10 +59,9 @@ const ManageGallery = () => {
         formData
       );
       if (res.data.success) {
-        console.log(res.data.data.message);
         setTimeout(() => {
           window.location.reload();
-        }, 4000);
+        }, 1000);
         toast.success(res.data.data.message, { position: "top-right" });
       }
     };
@@ -68,6 +73,8 @@ const ManageGallery = () => {
       .slice(((filename.lastIndexOf(".") - 1) >>> 0) + 2)
       .toLowerCase();
   };
+
+
 
   return (
     <div className="mt-[40px]">
@@ -83,13 +90,13 @@ const ManageGallery = () => {
           </button>
         </div>
         <div className="m-10 grid grid-cols-5 gap-5">
-          {media?.gallery_images.length > 1 ? (
-            media?.gallery_images.map((gallery, idx) => (
-              <div className="h-[200px] p-1 relative">
-                <img src={gallery.imageUrl} alt="" className="h-full w-full" />
+          {media?.gallery_images.length > 0 ? (
+            media?.gallery_images.map((gallery) => (
+              <div key={gallery?.publicId} className="h-[200px] p-1 relative">
+                <img src={gallery?.imageUrl} alt="" className="h-full w-full" />
                 <MdDeleteOutline
                   size={24}
-                  onClick={handleDelete}
+                  onClick={()=> handleDelete(gallery?.publicId)}
                   className="absolute top-2 left-2 hover:text-red-900 hover:scale-[1.2]"
                 />
               </div>

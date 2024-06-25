@@ -22,7 +22,6 @@ function getPublicIdFromUrl(imageUrl) {
 }
 
 async function deleteImage(publicId) {
-  console.log('delete image called')
   // try{
     const result = await cloudinary.uploader.destroy(publicId, function(err, result){
       if(err){
