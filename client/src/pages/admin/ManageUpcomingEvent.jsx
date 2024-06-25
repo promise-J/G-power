@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { SERVER_URL } from "../../../lib/constants";
+import axiosInstance from "../../../lib/axiosRequest";
 
 const ManageUpcomingEvent = () => {
   const [file, setFile] = useState(null)
@@ -32,7 +32,7 @@ const ManageUpcomingEvent = () => {
     formData.date = date
     formData.time = time
 
-    const {data: res} = await axios.post(`${SERVER_URL}/events/upcoming`, formData)
+    const {data: res} = await axiosInstance.post(`/events/upcoming`, formData)
     console.log(res,'the response')
 
   }

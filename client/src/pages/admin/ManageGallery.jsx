@@ -1,8 +1,9 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { toast } from "react-toastify";
 import { SERVER_URL } from "../../../lib/constants";
+import axiosInstance from "../../../lib/axiosRequest";
 
 const ManageGallery = () => {
   const [file, setFile] = useState(null);
@@ -11,7 +12,7 @@ const ManageGallery = () => {
   const handleDelete = async (publicId) => {
     const isDelete = confirm("Are you sure you want to delete?");
     if(isDelete){
-      const {data: res} = await axios.delete(`${SERVER_URL}/media/addMediaGallery/${media?._id}?publicId=${publicId}`)
+      const {data: res} = await axiosInstance.delete(`/media/addMediaGallery/${media?._id}?publicId=${publicId}`)
       if(res.success === true){
         window.location.reload()
       }
@@ -20,9 +21,7 @@ const ManageGallery = () => {
 
   useEffect(() => {
     const getMediaContent = async () => {
-      const { data: res } = await axios.get(
-        `${SERVER_URL}/media/mediaHeaderImages`
-      );
+      const { data: res } = await axiosInstance.get(`/media/mediaHeaderImages`);
       setMedia(res.data);
     };
 
@@ -54,10 +53,7 @@ const ManageGallery = () => {
     const imageUpload = async () => {
       const formData = new FormData();
       formData.append("image", file);
-      const res = await axios.post(
-        `${SERVER_URL}/media/addMediaGallery`,
-        formData
-      );
+      const res = await axiosInstance.post(`/media/addMediaGallery`,formData);
       if (res.data.success) {
         setTimeout(() => {
           window.location.reload();

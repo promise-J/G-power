@@ -11,8 +11,7 @@ import { IoIosArrowDropup } from "react-icons/io";
 import useBookNowStore from "../zustard/BookNowStore";
 import Hero from "../components/Hero";
 import TawkTo from "../Tawkto";
-import { SERVER_URL } from "../../lib/constants";
-import axios from "axios";
+import axiosInstance from "../../lib/axiosRequest";
 
 // <!--Start of Tawk.to Script-->
 // <script type="text/javascript">
@@ -34,7 +33,7 @@ const Homepage = () => {
 
   useEffect(()=>{
     const getMediaContent = async ()=>{
-      const {data: res} = await axios.get(`${SERVER_URL}/media/mediaHeaderImages`)
+      const {data: res} = await axiosInstance.get(`/media/mediaHeaderImages`)
       setMedia(res.data)
     }
 
@@ -207,7 +206,7 @@ const Homepage = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
           {
-            media?.gallery_images.length > 1 ?
+            media?.gallery_images.length > 0 ?
             media?.gallery_images.map((gallery, idx)=>(
               <div data-aos={idx%2 == 0 ? 'fade-up' : 'fade-down'} className=" flex justify-center items-center">
                 <div className="h-[90%] w-[90%]">

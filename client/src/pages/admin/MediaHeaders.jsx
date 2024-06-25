@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { SERVER_URL } from '../../../lib/constants'
 import { toast } from "react-toastify";
+import axiosInstance from '../../../lib/axiosRequest';
 
 const MediaHeaders = () => {
   const [file, setFile] = useState(null)
@@ -11,7 +11,7 @@ const MediaHeaders = () => {
 
   useEffect(()=>{
     const getMediaImages = async ()=>{
-        const res = await axios.get(`${SERVER_URL}/media/mediaHeaderImages`)
+        const res = await axiosInstance.get(`/media/mediaHeaderImages`)
         if(res.data.success){
             setMediaHeader(res.data.data)
         }
@@ -52,7 +52,7 @@ const handleSubmit = (e, media_type) =>{
         const formData = new FormData()
         formData.append('image', file)
         formData.append('media_type', mediaType)
-        const res = await axios.post(`${SERVER_URL}/media/mediaHeaderImages`, formData)
+        const res = await axiosInstance.post(`/media/mediaHeaderImages`, formData)
         if(res.data.success){
             console.log(res.data.data.message)
             setTimeout(() => {
