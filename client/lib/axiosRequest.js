@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from 'axios'
 
 const remote = "https://godspower.onrender.com/api"
 const local  = "http://localhost:5000/api"
