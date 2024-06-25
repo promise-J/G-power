@@ -8,7 +8,6 @@ const baseURL = remote
 // Create axios instance with base URL
 const axiosInstance = axios.create({
   baseURL: baseURL, // Replace with your base URL
-  timeout: 5000, // Optional timeout
   headers: {
     'Content-Type': 'application/json', // Example headers
   },
