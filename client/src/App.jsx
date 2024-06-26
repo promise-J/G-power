@@ -19,6 +19,7 @@ import Member from "./pages/admin/Member";
 import MediaHeaders from "./pages/admin/MediaHeaders";
 import ManageGallery from "./pages/admin/ManageGallery";
 import ManageUpcomingEvent from "./pages/admin/ManageUpcomingEvent";
+import ManageAudio from "./pages/admin/ManageAudio";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -54,6 +55,7 @@ function App() {
             <Route element={<MediaHeaders />} path="media-headers" />
             <Route element={<ManageGallery />} path="manage-gallery" />
             <Route element={<ManageUpcomingEvent />} path="upcoming-events" />
+            <Route element={<ManageAudio />} path="manage-audio" />
             <Route element={<Member />} path="member/:id" />
             <Route element={<Member />} path="member" />
             <Route element={<Member />} path="programmes" />

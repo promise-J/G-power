@@ -45,7 +45,7 @@ class UpcomingEventController extends BaseController {
       await upcomingEvent.save();
 
       if (empty(upcomingEvent)) {
-        await imageCleanUp();
+        await imageCleanUp(images);
         return UpcomingEventController.sendFailedResponse(res, {
           error: "Something went wrong. Could not create event.",
         });

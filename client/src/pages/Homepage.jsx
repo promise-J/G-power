@@ -31,6 +31,8 @@ import axiosInstance from "../../lib/axiosRequest";
 const Homepage = () => {
   const [media, setMedia] = useState(null)
   const [upcomingEvents, setUpcomingEvents] = useState([])
+  const [allDaddyAudios, setAllDaddyAudios] = useState([])
+  const [allMummyAudios, setAllMummyAudios] = useState([])
 
   useEffect(()=>{
     const getMediaContent = async ()=>{
@@ -40,6 +42,7 @@ const Homepage = () => {
 
     getMediaContent()
   },[])
+
   useEffect(()=>{
     const getUpcomingEvents = async ()=>{
       const {data: res} = await axiosInstance.get(`/events/upcoming`)
@@ -49,12 +52,30 @@ const Homepage = () => {
     getUpcomingEvents()
   },[])
 
+  useEffect(()=>{
+    const getAllDaddyAudios = async ()=>{
+      const {data: res} = await axiosInstance.get(`/audios/audio/daddy`)
+      setAllDaddyAudios(res.data)
+    }
+
+    getAllDaddyAudios()
+  },[])
+
+  useEffect(()=>{
+    const getAllMummyAudio = async ()=>{
+      const {data: res} = await axiosInstance.get(`/audios/audio/mummy`)
+      setAllMummyAudios(res.data)
+    }
+
+    getAllMummyAudio()
+  },[])
+
   const bookNowStore = useBookNowStore()
   const openBooking = ()=> {
     bookNowStore.onOpen()
   }
 
-  const smoothScroll = (target, duration) => {
+  function smoothScroll(target, duration) {
     const targetElement = document.querySelector(target);
     const targetPosition = targetElement.getBoundingClientRect().top;
     const startPosition = window.pageYOffset;
@@ -62,28 +83,29 @@ const Homepage = () => {
     let startTime = null;
 
     const animation = (currentTime) => {
-      if (startTime === null) startTime = currentTime;
+      if (startTime === null)
+        startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const run = easing(timeElapsed, startPosition, distance, duration);
       window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
+      if (timeElapsed < duration)
+        requestAnimationFrame(animation);
     };
 
     const easing = (t, b, c, d) => {
       t /= d / 2;
-      if (t < 1) return c / 2 * t * t + b;
+      if (t < 1)
+        return c / 2 * t * t + b;
       t--;
       return -c / 2 * (t * (t - 2) - 1) + b;
     };
 
     requestAnimationFrame(animation);
-  };
+  }
 
   const handleClick = () => {
     smoothScroll('#home', 2000); // Adjust target element and duration as needed
   };
-
-
 
   return (
     <div id='home'>
@@ -280,25 +302,47 @@ const Homepage = () => {
         <p className="text-center text-lg">
         Explore our audio messages—inspiring sermons and teachings that nurture your faith journey.</p>
         </div>
+        <h2>Daddy's Message</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
-          <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
-            <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
-            <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
-            </div>
-            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
-            <div className="p-3">
-              <p data-aos='zoom-in' className="my-4">With Christ on His Throne - 04-11-2023</p>
-            </div>
-          </div>
-          <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
-            <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
-            <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
-            </div>
-            <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
-            <div className="p-3">
-              <p data-aos='zoom-in' className="my-4">With Christ on His Throne2 - 02-11-2024</p>
-            </div>
-          </div>
+          {
+            allDaddyAudios.length > 0 ? 
+            allDaddyAudios.map(audio=>(
+              <a key={audio?._id} target="_blank" href={audio?.link}>
+                <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
+                  <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
+                  <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
+                  </div>
+                  <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
+                  <div className="p-3">
+                    <p data-aos='zoom-in' className="my-4">{audio?.title} - {audio?.date}</p>
+                  </div>
+                </div> 
+              </a>
+            ))
+            :
+            <h2 className="text-3xl">Coming soon</h2>
+          }
+        </div>
+        <h2>Mummy's Message</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
+          {
+            allMummyAudios.length > 0 ? 
+            allMummyAudios.map(audio=>(
+              <a key={audio?._id} target="_blank" href={audio?.link}>
+                <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
+                  <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
+                  <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
+                  </div>
+                  <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
+                  <div className="p-3">
+                    <p data-aos='zoom-in' className="my-4">{audio?.title} - {audio?.date}</p>
+                  </div>
+                </div> 
+              </a>
+            ))
+            :
+            <h2 className="text-3xl">Coming soon</h2>
+          }
         </div>
       </section>
       <section id='contact' className="flex md:p-10 my-10 flex-col md:flex-row">

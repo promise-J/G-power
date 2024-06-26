@@ -5,12 +5,8 @@ const local  = "http://localhost:5000/api"
 
 const baseURL = remote
 
-// Create axios instance with base URL
 const axiosInstance = axios.create({
-  baseURL: baseURL, // Replace with your base URL
-//   headers: {
-//     'Content-Type': 'application/json', // Example headers
-//   },
+  baseURL: baseURL,
 });
 
 export default axiosInstance;

@@ -97,7 +97,6 @@ const ManageUpcomingEvent = () => {
 
       try {
         const {data: res} = await axiosInstance.delete(`/events/upcoming/${id}`)
-        console.log(res,'the response')
         if(res.success){
           toast.success(res.data.message)
           setTimeout(() => {
@@ -152,7 +151,7 @@ const ManageUpcomingEvent = () => {
         {/* Start edit modal */}
         { showEditModal &&
         <div className="absolute w-full h-[90vh] flex justify-center items-center">
-          <div className="bg-blue-900 w-[70%] h-[43%] px-8 text-white">
+          <div className="bg-blue-900 w-[70%] h-[43%] px-8 ">
           <h1 className="text-center text-3xl mt-3">Edit Event</h1>
             <div className="flex gap-10 my-2">
               <input className="border p-2 flex-1" value={eTitle} disabled placeholder="Enter title" type="text" />
@@ -163,11 +162,11 @@ const ManageUpcomingEvent = () => {
               <input className="border p-2 flex-1" onChange={(e)=> setETime(e.target.value)} value={eTime} placeholder="TIME: 08:39PM" type="text" />
             </div>
             <div className="flex gap-10 mt-5">
-              <input className="border p-2 " onChange={handleEImageChange} type="file" />
-              <button onClick={handleEdit} className="border flex-1 border-gray-300">Edit</button>
+              <input className="border p-2 text-white" onChange={handleEImageChange} type="file" />
+              <button onClick={handleEdit} className="border flex-1 border-gray-300 text-white">Edit</button>
             </div>
             <div className="flex gap-10 mt-5">
-              <button onClick={()=> setShowEditModal(false)} className="border flex-1 p-2 border-gray-300">Cancel</button>
+              <button onClick={()=> setShowEditModal(false)} className="border flex-1 p-2 border-gray-300 text-white">Cancel</button>
             </div>
           </div>
         </div>
