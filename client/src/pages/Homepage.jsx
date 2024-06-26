@@ -302,19 +302,19 @@ const Homepage = () => {
         <p className="text-center text-lg">
         Explore our audio messages—inspiring sermons and teachings that nurture your faith journey.</p>
         </div>
-        <h2>Daddy's Message</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
+        <h2 className="text-4xl text-center mt-20">Daddy's Message</h2>
+        <div className="grid md:grid-cols-4 lg:grid-cols-6 gap-8 p-3 md:p-10 mt-10">
           {
             allDaddyAudios.length > 0 ? 
-            allDaddyAudios.map(audio=>(
+            allDaddyAudios.slice(0, 6).map(audio=>(
               <a key={audio?._id} target="_blank" href={audio?.link}>
                 <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
                   <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
                   <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
                   </div>
-                  <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
-                  <div className="p-3">
-                    <p data-aos='zoom-in' className="my-4">{audio?.title} - {audio?.date}</p>
+                  <img src="/audio.jpeg" alt="image-here" className="rounded-[20px]" />
+                  <div className="pt-3">
+                    <p data-aos='zoom-in' className="mt-3 text-lg">{audio?.title} - {audio?.date}</p>
                   </div>
                 </div> 
               </a>
@@ -323,19 +323,22 @@ const Homepage = () => {
             <h2 className="text-3xl">Coming soon</h2>
           }
         </div>
-        <h2>Mummy's Message</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 p-3 md:p-20 my-10">
+        <div className="mb-20 flex justify-center">
+          <button className="border px-5 py-1 font-bold">See more...</button>
+        </div>
+        <h2 className="text-4xl text-center">Mummy's Message</h2>
+        <div className="grid md:grid-cols-4 lg:grid-cols-6 gap-8 p-3 md:p-10 mt-10">
           {
             allMummyAudios.length > 0 ? 
-            allMummyAudios.map(audio=>(
+            allMummyAudios.slice(0, 6).map(audio=>(
               <a key={audio?._id} target="_blank" href={audio?.link}>
                 <div className="cursor-pointer relative group rounded-[20px]" data-aos='zoom-in'>
                   <div className="absolute group-hover:bg-purple-100 group-hover:opacity-[0.2] h-full w-full transition duration-700 ease-in-out flex justify-center items-center">
                   <CiMicrophoneOn className="group-hover:invisible font-bold bg-blacek animate-bounce" size={40} color="white" />
                   </div>
-                  <img src="https://res.cloudinary.com/dfohdw1w8/image/upload/v1712659773/gp_fmgx1a.png" alt="image-here" className="rounded-[20px]" />
-                  <div className="p-3">
-                    <p data-aos='zoom-in' className="my-4">{audio?.title} - {audio?.date}</p>
+                  <img src="/audio.jpeg" alt="image-here" className="rounded-[20px]" />
+                  <div className="">
+                    <p data-aos='zoom-in' className="mt-3 text-lg">{audio?.title} - {audio?.date}</p>
                   </div>
                 </div> 
               </a>
@@ -343,6 +346,9 @@ const Homepage = () => {
             :
             <h2 className="text-3xl">Coming soon</h2>
           }
+        </div>
+        <div className="mb-20 flex justify-center">
+          <button className="border px-5 py-1 font-bold">See more...</button>
         </div>
       </section>
       <section id='contact' className="flex md:p-10 my-10 flex-col md:flex-row">
