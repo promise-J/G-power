@@ -8,13 +8,13 @@ const mediaHeaderModel = new mongoose.Schema({
         default: 'godspower'
     },
     about_header: {
-        type: {}
+        type: {publicId: String, imageUrl: String}
     },
     mission_header: {
-        type: {}
+        type: {publicId: String, imageUrl: String}
     },
     vision_header: {
-        type: {}
+        type: {publicId: String, imageUrl: String}
     },
     gallery_images: {
         type: [{publicId: String, imageUrl: String}]

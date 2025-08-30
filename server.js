@@ -14,14 +14,18 @@ const mongoURL = process.env.MONGODB_URL
 app.use(cors())
 
 app.use(express.json())
-app.use(express.static(path.join(__dirname, "client", "dist")));
+// app.use(express.static(path.join(__dirname, "client", "dist")));
 
+app.get('/', (req, res) => {
+  res.send("Welcome to the server");
+}
+);
 app.use("/api", allRoutes);
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+// });
 
 app.listen(port, async () => {
-  console.log(`Server running on port and DB connected ${port}`);
+  console.log(`Server running on port ${port}`);
   await connectToMongoDB(mongoURL)
 });

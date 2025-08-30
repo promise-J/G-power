@@ -1,4 +1,3 @@
-const { deleteImage } = require("../middleware/upload");
 
 
 exports.isEmpty = (data = null) => {
